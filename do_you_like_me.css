@@ -140,6 +140,11 @@ body {
   z-index: 1; /* keeps your gif + text above the hearts */
 }
 
+.media-wrap{
+  position: relative;
+  display: inline-block;
+}
+
 .result-video {
   width: 220px;          /* control size */
   max-width: 80vw;       /* responsive safety */
@@ -149,8 +154,23 @@ body {
   margin-bottom: 12px;
 
   object-fit: contain;   /* prevent stretching */
+  display: block;
 }
 
+.result-gif{
+  width: 220px;          /* control size */
+  max-width: 80vw;       /* responsive safety */
+  height: auto;
+
+  border-radius: 16px;
+  display: none;
+}
+.replay-btn{
+  margin-top: 16px;
+  background: #ff6fae;
+  color: white;
+  font-weight: 500;
+}
 
 .floating-hearts span {
   position: absolute;
