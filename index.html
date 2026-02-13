@@ -24,15 +24,26 @@
     </div>
   </div>
 
-  <div class="floating-hearts" aria-hidden="true">
+<div class="floating-hearts" aria-hidden="true">
     <span>💗</span><span>💖</span><span>💕</span><span>💗</span><span>💖</span>
     <span>💕</span><span>💗</span><span>💖</span><span>💕</span><span>💗</span>
   </div>
-  
-  <div class="result-container container">
-    <video class="gif-result" src="cat_kiss.mp4" autoplay loop muted playsinline></video>
-    <h2>I knew it 😍</h2>
+
+  <div class="result-container container" style="display:none;">
+
+  <div class="media-wrap">
+    <video class="result-video" autoplay loop muted playsinline>
+      <source src="cat_kiss.mp4" type="video/mp4">
+    </video>
+
+    <img class="result-gif" src="cat_kiss.gif" alt="Cute result gif">
   </div>
+
+  <h2>I knew it 😍</h2>
+  <button class="btn replay-btn js-replay-btn">Replay 🔁</button>
+</div>
+
+ 
 
   <script src="do_you_like_me.js"></script>
 </body>

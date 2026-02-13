@@ -11,6 +11,52 @@ const funnyMessage = [
   "Verifying you didn't misclick...👀",
   "Checking heart compatibility...🔍"
 ]
+const resultVideo = document.querySelector(".result-video");
+const resultGif = document.querySelector(".result-gif");
+const replayBtn = document.querySelector(".js-replay-btn");
+
+function showVideoHideGif() {
+  if (resultVideo) resultVideo.style.display = "block";
+  if (resultGif) resultGif.style.display = "none";
+}
+
+function showGifHideVideo() {
+  if (resultVideo) resultVideo.style.display = "none";
+  if (resultGif) resultGif.style.display = "block";
+}
+
+
+function enableGifFallback() {
+  showGifHideVideo();
+}
+
+if (resultVideo) {
+  // If loading/playing fails, use GIF
+  resultVideo.addEventListener("error", enableGifFallback);
+  resultVideo.addEventListener("stalled", enableGifFallback);
+
+
+}
+
+
+if (replayBtn) {
+  replayBtn.addEventListener("click", () => {
+    resultContainer.style.display = "none";
+    questionContainer.style.display = "block";
+    noBtn.style.transform = "translate(0px, 0px)";
+    heartLoader.style.display = "none";
+
+    showVideoHideGif();
+
+    if (resultVideo) {
+      resultVideo.currentTime = 0;
+      const p = resultVideo.play();
+      if (p && typeof p.catch === "function") p.catch(showGifHideVideo);
+    }
+  });
+}
+
+
 
 let loadingIntervalId = null;
 
@@ -74,8 +120,21 @@ yesBtn.addEventListener("click", () => {
   startLoadingMessage();
 
   setTimeout(() => {
-    stopLoadingMessage();
-    heartLoader.style.display = "none";
-    resultContainer.style.display = "block";
-  }, 3000);
+  stopLoadingMessage();
+
+  heartLoader.style.display = "none";
+
+  // ✅ SHOW RESULT SCREEN
+  resultContainer.style.display = "block";
+
+  // reset media
+  showVideoHideGif();
+
+  if (resultVideo) {
+    resultVideo.currentTime = 0;
+    const p = resultVideo.play();
+    if (p && typeof p.catch === "function") p.catch(showGifHideVideo);
+  }
+}, 3000);
+
 });
