@@ -140,6 +140,18 @@ body {
   z-index: 1; /* keeps your gif + text above the hearts */
 }
 
+.result-video {
+  width: 220px;          /* control size */
+  max-width: 80vw;       /* responsive safety */
+  height: auto;
+
+  border-radius: 16px;
+  margin-bottom: 12px;
+
+  object-fit: contain;   /* prevent stretching */
+}
+
+
 .floating-hearts span {
   position: absolute;
   bottom: -20%;
