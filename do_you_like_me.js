@@ -40,21 +40,20 @@ if (resultVideo) {
 
 
 if (replayBtn) {
-  replayBtn.addEventListener("click", () => {
+  replayBtn.addEventListener("pointerup", (e) => {
+    e.preventDefault();
+
     resultContainer.style.display = "none";
     questionContainer.style.display = "block";
+
     noBtn.style.transform = "translate(0px, 0px)";
     heartLoader.style.display = "none";
 
+    // reset media state
     showVideoHideGif();
-
-    if (resultVideo) {
-      resultVideo.currentTime = 0;
-      const p = resultVideo.play();
-      if (p && typeof p.catch === "function") p.catch(showGifHideVideo);
-    }
   });
 }
+
 
 
 

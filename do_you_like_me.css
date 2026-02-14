@@ -46,6 +46,12 @@ body {
   filter: brightness(0,95);
 }
 
+.btn {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+
 .button-container {
   display: flex;
   justify-content: center;
@@ -170,6 +176,8 @@ body {
   background: #ff6fae;
   color: white;
   font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
 }
 
 .floating-hearts span {
